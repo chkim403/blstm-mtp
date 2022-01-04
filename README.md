@@ -28,6 +28,24 @@ python run_tracker.py --model_path=YOUR_MODEL_FOLDER/model.ckpt --output_path=YO
 ```
 5. This command will generate the tracking result that is shown in Table 6 of our paper. You can use these [files](https://drive.google.com/file/d/1CKdjUIlHbfO304IYwsrdblQ_PXEtmYCm/view?usp=sharing) to verify your output files.
 
+## Performance
+
+When paired with [Tracktor](https://github.com/phil-bergmann/tracking_wo_bnw) or [CenterTrack](https://github.com/xingyizhou/CenterTrack), our method greatly improves the tracking performance in terms of IDF1 and IDS. 
+
+| Method                | IDF1        | MOTA        | IDS         | MT          | ML          | Frag        | FP          | FN          | 
+| --------------------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- |
+| Tracktor++v2          | 55.1        | 56.3        | 1,987       | 21.1        | 35.3        | 3,763       | 8,866       | 235,449     |
+| Ours + Tracktor++v2   | 60.5        | 55.9        | 1,188       | 20.5        | 36.7        | 4,185       | 8,663       | 238,863     |
+
+The data file that you download in the instructions above also includes MOT Challenge detections processed by CenterTrack ('centertrack_prepr_det.txt'). In order to use it as input to the tracker, you can simply change 'run_tracker.py' in a way that it reads detections from 'centertrack_prepr_det.txt' instead of 'tracktor_prepr_det.txt'. The following is the result obtained by using the public detections processed by CenterTrack.
+
+| Method                | IDF1        | MOTA        | IDS         | MT          | ML          | Frag        | FP          | FN          | 
+| --------------------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- |
+| CTTrackPub            | 59.6        | 61.5        | 2,583       | 26.4        | 31.9        | 4,965       | 14,076      | 200,672     |
+| Ours + CTTrackPub     | 62.9        | 62.0        | 1,750       | 27.9        | 31.0        | 7,433       | 17,621      | 194,946     |
+
+With NVIDIA TITAN Xp, the inference code runs at around 24 fps on the MOT17 Challenge test set (excluding time spent on I/O operations). 
+
 ## Training
 The training code will be released soon in the future release. Stay tuned for more updates.
 
