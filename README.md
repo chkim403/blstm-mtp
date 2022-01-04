@@ -37,7 +37,7 @@ When paired with [Tracktor](https://github.com/phil-bergmann/tracking_wo_bnw) or
 | Tracktor++v2          | 55.1        | 56.3        | 1,987       | 21.1        | 35.3        | 3,763       | 8,866       | 235,449     |
 | Ours + Tracktor++v2   | 60.5        | 55.9        | 1,188       | 20.5        | 36.7        | 4,185       | 8,663       | 238,863     |
 
-The data file that you download in the instructions above also includes MOT Challenge detections processed by CenterTrack ('centertrack_prepr_det.txt'). In order to use it as input to the tracker, you can simply change 'run_tracker.py' in a way that it reads detections from 'centertrack_prepr_det.txt' instead of 'tracktor_prepr_det.txt'. The following is the result obtained by using the public detections processed by CenterTrack.
+The data file that you download in the instructions above also includes MOT Challenge detections processed by CenterTrack (`centertrack_prepr_det.txt`). In order to use it as input to the tracker, you can simply change `run_tracker.py` in a way that it reads detections from `centertrack_prepr_det.txt` instead of `tracktor_prepr_det.txt`. The following is the result obtained by using the public detections processed by CenterTrack.
 
 | Method                | IDF1        | MOTA        | IDS         | MT          | ML          | Frag        | FP          | FN          | 
 | --------------------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- |
